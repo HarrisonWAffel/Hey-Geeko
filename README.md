@@ -6,6 +6,14 @@ Geeko provides simple utilities such as telling the time, reading out weather re
 or even playing 30 seconds of your favorite songs by genre. Geeko is easily extendable, and new functionality 
 can be written with minimal knowledge of NLP concepts. 
 
+<details closed>
+<summary>Demo</summary>
+
+
+https://user-images.githubusercontent.com/25062254/176788185-ab54f96b-4bfe-4e78-a508-913f613eba7e.mov
+
+This brief demo shows what Geeko can do, and it also shows the expected latency when using one of higher quality voices. 
+</details>
 
 # Commands
 Geeko will respond to the following commands once you speak the wake-word ('Hey, Geeko' or 'Hey, Mycroft' depending on how you have configured Geeko)

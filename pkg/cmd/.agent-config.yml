@@ -1,0 +1,81 @@
+# most of these settings are specific to
+# your environment. Make sure to set them up correctly!
+
+# the voice2json path is needed to properly locate the wake-word models
+voice2json:
+  path: /home/pi/voice2json
+
+
+# the profile path is needed to access the language models and intent files
+# you can also specify different models by changing the 'name' property
+#
+# The available english profiles are
+#
+#  en-us_kaldi-rhasspy      (default)
+#  en-us_kaldi-zamia
+#  en-us_pocketsphinx-cmu   (make sure pocketSphinx is working)
+#  en-us_deepspeech-mozilla (make sure deepSpeech is configured when building voice2json, it isn't by default)
+#
+profile:
+  name: en-us_kaldi-rhasspy
+  path: /home/pi/.local/share/voice2json/
+
+
+# specify the TTS voice you want to use. Different
+# voices have different qualities, as well as resource requirements.
+# A better sounding voice results in a longer loading time and larger perceived latency
+# a few voices have been tested and work (fairly) quickly, they are
+#
+# festival:cmu_us_slt_arctic_hts
+# flite:cmu_us_aew
+# flite:cmu_us_rxr
+# larynx:glados-glow_tts (sounds like Glad0s from portal :D. kind of slow on RPI4 tho ): )
+# espeak:en              (no latency at all, but sounds like a robot)
+#
+# To get a list of all supported voices, ensure that opentts server is running and execute
+# curl http://localhost:5500/api/voices | jq
+#
+#
+# If you want higher quality TTS, you should host opentts on a more powerful box,
+# update the api section below to point to that box, and change the voice as desired.
+tts:
+  voice: larynx:glados-glow_tts
+  api: http://localhost:5500
+
+
+
+# A couple of wake-word models come out of the box
+# such as,
+#
+# marvin.pb
+# athena.pb
+# christopher-precise.pb
+# computer-en.pb
+# sheila-en.pb
+# hey-mycroft-2.pb (default for myCroft precise, accurate)
+# hey-geeko.pb     (default, not incredibly accurate, but cool!)
+#
+#
+wakeWord:
+  modelName: hey-geeko.pb
+
+
+# The Weather API is weatherapi.com
+# you need to generate a free API key
+# before weather commands will work
+
+# The music API is deezer.com and its free
+# but, you will only get 30 seconds of audio
+
+# If you use Rancher, and have the CLI installed
+# and in your path, you can enable the app
+# to get read-outs on clusters
+apps:
+  weather:
+    key:
+    defaultLocation: philadelphia
+  time:
+    location: America/New_York
+  rancher:
+    enabled: false
+
